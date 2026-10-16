@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Please cite this exact code release and the accompanying study when using this workflow."
+type: software
+title: "SIDISH-derived glioma prognostic framework: original and revision analysis code"
+version: "1.0.0"
+authors:
+  - family-names: Li
+    given-names: Ren
+  - family-names: Guo
+    given-names: Hengyi
+  - family-names: Zhou
+    given-names: Zixuan
+  - family-names: Ma
+    given-names: Hongyu
+  - family-names: Sun
+    given-names: Qianhui
+  - family-names: Li
+    given-names: Xiaoxia
+repository-code: "https://github.com/Liren100290/SIDISH-glioma-prognostic-framework"
+url: "https://github.com/Liren100290/SIDISH-glioma-prognostic-framework/releases/tag/v1.0.0"
+abstract: "Study-specific downstream analysis of SIDISH-derived single-cell risk states, a fixed nine-gene glioma score, external survival evaluation and clinical sensitivity analyses."
+license: MIT

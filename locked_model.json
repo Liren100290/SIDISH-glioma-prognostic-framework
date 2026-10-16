@@ -1,0 +1,43 @@
+{
+  "genes": [
+    {
+      "gene": "GFPT2",
+      "coefficient": "0.122758960290095"
+    },
+    {
+      "gene": "KAZN",
+      "coefficient": "-0.272819530798589"
+    },
+    {
+      "gene": "NTN1",
+      "coefficient": "0.263253131174784"
+    },
+    {
+      "gene": "PTPRO",
+      "coefficient": "0.217846861233043"
+    },
+    {
+      "gene": "SLC22A23",
+      "coefficient": "0.20089274692195"
+    },
+    {
+      "gene": "STK32A",
+      "coefficient": "-0.31167503846281"
+    },
+    {
+      "gene": "STK32B",
+      "coefficient": "0.376812028314546"
+    },
+    {
+      "gene": "TCF7L2",
+      "coefficient": "-0.27592848914877"
+    },
+    {
+      "gene": "TMEM132B",
+      "coefficient": "-0.213310866304644"
+    }
+  ],
+  "cutoff": -0.0269027400037899,
+  "cutoff_source": "Development median; unchanged in external evaluation",
+  "preprocessing": "Use the expression processing and frozen parent-cohort reference defined in the supplied scripts; coefficients do not apply directly to arbitrary raw counts."
+}
