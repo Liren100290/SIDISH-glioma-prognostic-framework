@@ -11,15 +11,19 @@ downstream R workflow and the additional analyses prepared for manuscript revisi
 - Browse `original_sources/` for the seven original R scripts and three independent audit scripts.
 - Browse `revision_sources/` for the revision analysis, verification and working-figure sources.
 - `SOURCE_MAP.csv` maps every readable source to its execution path in the complete packages.
-- The full execution layouts and retained inputs are attached to [release v1.0.0](https://github.com/Liren100290/SIDISH-glioma-prognostic-framework/releases/tag/v1.0.0).
-  The readable source folders are mirrors; run analyses from the extracted release packages.
+- The current execution layouts, retained inputs and final figure-rendering sources are attached to [release v1.0.1](https://github.com/Liren100290/SIDISH-glioma-prognostic-framework/releases/tag/v1.0.1).
+  Run analyses from the extracted release packages. The readable source folders provide a browsing view of the original and revision workflows.
+- [Release v1.0.0](https://github.com/Liren100290/SIDISH-glioma-prognostic-framework/releases/tag/v1.0.0) remains available as the historical initial release.
 - `locked_nine_gene_coefficients.csv` and `locked_model.json` record the fixed formula and cutoff.
 
 ## Download and verify
 
-Download all five `Supplementary_Code_1_v07_*.zip` assets for the revision replay, and
-`Supplementary_Code_2_original_workflow_v03.zip` for the original sources and retained-input audits.
-Checksums are in `SHA256SUMS.txt`. Each ZIP is smaller than 20 MB.
+Download all five `Supplementary_Code_1_v07_*.zip` assets for the revision replay,
+`Supplementary_Code_2_original_workflow_v03.zip` for the original sources and retained-input audits,
+and `Supplementary_Code_3.zip` for final Figure 5 and Supplementary Figures 2-4.
+The release also supplies `README.txt` and `SHA256SUMS.txt`. Each of the seven ZIPs is smaller than 20 MB.
+
+Run the following from the repository directory:
 
 ```console
 python download_release.py --output ./download --extract
@@ -28,11 +32,15 @@ python RUN_REVISION.py --check-only
 python RUN_REVISION.py --rscript PATH_TO_STATISTICS_RSCRIPT --graphics-rscript PATH_TO_GRAPHICS_RSCRIPT
 ```
 
-The downloader uses Python's standard library. Install analytical dependencies separately
+The downloader uses Python's standard library and is pinned to release v1.0.1 and its
+checksum-manifest digest. It verifies the seven ZIPs and release README before extracting
+ZIP files only; it refuses a mismatched manifest or differing existing file. Keep
+`download_release.py` and `SHA256SUMS.txt` together from the same repository revision.
+Install analytical dependencies separately
 using the supplied Python requirements and R dependency/version notes. The runner installs
 no packages and does not delete files. On Windows, use a short ASCII destination path.
 
-For the original retained-input audits:
+For the original retained-input audits, start again from the repository directory:
 
 ```console
 cd download/SIDISH_original_workflow_v03
@@ -40,6 +48,19 @@ python audit_tools/CHECK_SOURCE_AND_SCORES.py
 python audit_tools/AUDIT_EXACT_SOURCE_GATE.py
 Rscript audit_tools/AUDIT_MODEL_FITS.R .
 ```
+
+For final figure rendering, start from the repository directory and run in this order:
+
+```console
+cd download/SIDISH_final_plot_rendering
+Rscript Figure5/Figure5.R
+Rscript Supplementary/Draw_S2_S3.R
+Rscript Supplementary/FigureS4.R
+```
+
+Code 3 supplies frozen inputs and panel objects. The last command produces the final
+Supplementary Figure 4; the preceding command also produces an earlier view of that figure.
+Use the graphics environment and dependencies documented in the package README.
 
 ## Analyses and scope
 
@@ -58,8 +79,10 @@ bootstrap selections and historical GDSC training have not been independently re
 The development direction gate preceded LOCO and used all three development cohorts;
 internal estimates are not fully nested external validation. Fixed-label sensitivities do
 not retrain SIDISH. No new laboratory experiment is represented in this release.
-Working figure references are retained for numerical reproduction and are not a final
-publication-layout or figure-approval record. The score is a research prognostic framework.
+Code 1 working-figure references support numerical reproduction. Code 3 separately
+supplies the final Figure 5 and Supplementary Figures 2-4 rendering sources; all four
+600-dpi TIFFs were reproduced byte-for-byte from the release inputs. The score is a
+research prognostic framework.
 
 ## Upstream software, data and attribution
 
@@ -76,9 +99,11 @@ are not part of this repository.
 
 ## Citation and version
 
-Use `CITATION.cff` and cite the exact release tag/commit used. This study has no publication
-DOI assigned in this repository. Release v1.0.0 corresponds to Code 1 distribution 07 and
-Code 2 public archive 03. No new Zenodo DOI is asserted.
+Use the author/title information in `CITATION.cff` and cite the exact release tag/commit
+used. Release v1.0.1 contains the final revision copies of Code 1 distribution 07 and
+Code 2 public archive 03, plus Code 3 final figure rendering. Release v1.0.0 is preserved
+as the initial-release record. This study has no publication DOI assigned in this
+repository. No new Zenodo DOI is asserted.
 
 ## License
 
